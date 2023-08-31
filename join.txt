@@ -1,0 +1,8 @@
+SELECT c.title, ct.name, cv.title, cv.url, lc.title, u.name, u.email, r.name
+ FROM courses c 
+ JOIN categories ct ON ct.id=c.category_id
+ JOIN courses_videos cv ON cv.courses_id=c.id
+ JOIN levels_courses lc ON lc.id=c.levels_courses_id
+ JOIN student_courses sc ON c.id=sc.courses_id 
+ JOIN users u ON u.id=sc.student_id OR u.id=c.teacher
+JOIN roles r ON r.id=u.rol_id;
